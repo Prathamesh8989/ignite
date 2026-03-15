@@ -122,7 +122,7 @@ class _BasePrecisionRecall(_BaseClassification):
         self._weight: int | torch.Tensor = 0
         self._updated = False
 
-        super(_BasePrecisionRecall, self).reset()
+        super().reset()
 
     @sync_all_reduce("_numerator", "_denominator")
     def compute(self) -> torch.Tensor | float:
@@ -179,7 +179,7 @@ class Precision(_BasePrecisionRecall):
         average: available options are
 
             False
-              default option. For multicalss and multilabel inputs, per class and per label
+              default option. For multiclass and multilabel inputs, per class and per label
               metric is returned respectively.
 
             None
@@ -212,7 +212,7 @@ class Precision(_BasePrecisionRecall):
               Incompatible with binary and multiclass inputs.
 
             'weighted'
-              like macro precision but considers class/label imbalance. for binary and multiclass
+              Like macro precision but considers class/label imbalance. For binary and multiclass
               input, it computes metric for each class then returns average of them weighted by
               support of classes (number of actual samples in each class). For multilabel input,
               it computes precision for each label then returns average of them weighted by support
@@ -287,7 +287,7 @@ class Precision(_BasePrecisionRecall):
             weighted_metric = Precision(average='weighted')
 
             metric.attach(default_evaluator, "precision")
-            macro_metric.attach(default_evaluator, "macro precision")
+            macro_metric.attach(default_evaluator, "macro recall")
             weighted_metric.attach(default_evaluator, "weighted precision")
 
             y_true = torch.tensor([2, 0, 2, 1, 0])
@@ -300,7 +300,7 @@ class Precision(_BasePrecisionRecall):
             ])
             state = default_evaluator.run([[y_pred, y_true]])
             print(f"Precision: {state.metrics['precision']}")
-            print(f"Macro Precision: {state.metrics['macro precision']}")
+            print(f"Macro Precision: {state.metrics['macro recall']}")
             print(f"Weighted Precision: {state.metrics['weighted precision']}")
 
         .. testoutput:: 2
