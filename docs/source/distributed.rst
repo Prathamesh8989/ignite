@@ -38,7 +38,7 @@ loaders to existing configuration:
         optimizer = optim.SGD(model.parameters(), lr=0.01)
         optimizer = idist.auto_optim(optimizer)
         # optimizer is itself, except XLA configuration and overrides `step()` method.
-        # User can safely call `optimizer.step()` (behind `xm.optimizer_step(optimizier)` is performed)
+        # User can safely call `optimizer.step()` (behind `xm.optimizer_step(optimizer)` is performed)
 
 
     backend = "nccl"  # torch native distributed configuration on multiple GPUs
@@ -51,7 +51,7 @@ loaders to existing configuration:
         parallel.run(training, config, a=1, b=2)
 
 Above code may be executed with `torch.distributed.launch`_ tool or by python and specifying distributed configuration
-in the code. For more details, please, see :class:`~ignite.distributed.launcher.Parallel`,
+in the code. For more details, please see :class:`~ignite.distributed.launcher.Parallel`,
 :meth:`~ignite.distributed.auto.auto_model`, :meth:`~ignite.distributed.auto.auto_optim` and
 :meth:`~ignite.distributed.auto.auto_dataloader`.
 
