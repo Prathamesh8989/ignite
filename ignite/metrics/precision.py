@@ -287,7 +287,7 @@ class Precision(_BasePrecisionRecall):
             weighted_metric = Precision(average='weighted')
 
             metric.attach(default_evaluator, "precision")
-            macro_metric.attach(default_evaluator, "macro recall")
+            macro_metric.attach(default_evaluator, "macro precision")
             weighted_metric.attach(default_evaluator, "weighted precision")
 
             y_true = torch.tensor([2, 0, 2, 1, 0])
@@ -300,7 +300,7 @@ class Precision(_BasePrecisionRecall):
             ])
             state = default_evaluator.run([[y_pred, y_true]])
             print(f"Precision: {state.metrics['precision']}")
-            print(f"Macro Precision: {state.metrics['macro recall']}")
+            print(f"Macro Precision: {state.metrics['macro precision']}")
             print(f"Weighted Precision: {state.metrics['weighted precision']}")
 
         .. testoutput:: 2
