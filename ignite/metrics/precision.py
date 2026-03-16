@@ -212,7 +212,7 @@ class Precision(_BasePrecisionRecall):
               Incompatible with binary and multiclass inputs.
 
             'weighted'
-              Like macro precision but considers class/label imbalance. For binary and multiclass
+              like macro precision but considers class/label imbalance. For binary and multiclass
               input, it computes metric for each class then returns average of them weighted by
               support of classes (number of actual samples in each class). For multilabel input,
               it computes precision for each label then returns average of them weighted by support
