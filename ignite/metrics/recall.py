@@ -60,7 +60,7 @@ class Recall(_BasePrecisionRecall):
               Incompatible with binary and multiclass inputs.
 
             'weighted'
-              Like macro recall but considers class/label imbalance. For binary and multiclass
+              like macro recall but considers class/label imbalance. For binary and multiclass
               input, it computes metric for each class then returns average of them weighted by
               support of classes (number of actual samples in each class). For multilabel input,
               it computes recall for each label then returns average of them weighted by support
