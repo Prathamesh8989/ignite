@@ -15,7 +15,7 @@ Distributed launcher and `auto` helpers
 
 We provide a context manager to simplify the code of distributed configuration setup for all above supported backends.
 In addition, methods like :meth:`~ignite.distributed.auto.auto_model`, :meth:`~ignite.distributed.auto.auto_optim` and
-:meth:`~ignite.distributed.auto.auto_dataloader` helps to adapt in a transparent way provided model, optimizer and data
+:meth:`~ignite.distributed.auto.auto_dataloader` help to adapt in a transparent way provided model, optimizer and data
 loaders to existing configuration:
 
 .. code-block:: python
