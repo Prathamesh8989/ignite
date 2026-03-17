@@ -37,7 +37,7 @@ loaders to existing configuration:
         # ...
         optimizer = optim.SGD(model.parameters(), lr=0.01)
         optimizer = idist.auto_optim(optimizer)
-        # optimizer is itself, except XLA configuration and overrides `step()` method.
+        # The optimizer remains unchanged, except for XLA configurations where the step() method is overridden.
         # User can safely call `optimizer.step()` (behind `xm.optimizer_step(optimizer)` is performed)
 
 
