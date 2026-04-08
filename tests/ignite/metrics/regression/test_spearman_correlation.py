@@ -68,8 +68,8 @@ def test_spearman_correlation(available_device):
         all_preds.append(x)
         all_targets.append(ground_truth)
 
-        pred_cat = torch.cat(all_preds).numpy()
-        target_cat = torch.cat(all_targets).numpy()
+        pred_cat = torch.cat(all_preds).cpu().numpy()
+        target_cat = torch.cat(all_targets).cpu().numpy()
 
         # Convert only for computing the expected value
         expected = spearmanr(pred_cat, target_cat).statistic
@@ -108,7 +108,7 @@ def test_integration_spearman_correlation(n_times, test_case: tuple[Tensor, Tens
     corr = engine.run(data, max_epochs=1).metrics["spearman_corr"]
 
     # Convert only for computing the expected value
-    expected = spearmanr(y_pred.numpy().ravel(), y.numpy().ravel()).statistic
+    expected = spearmanr(y_pred.cpu().numpy().ravel(), y.cpu().numpy().ravel()).statistic
 
     assert pytest.approx(expected, rel=2e-4) == corr
 

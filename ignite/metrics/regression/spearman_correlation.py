@@ -143,10 +143,10 @@ class SpearmanRankCorrelation(EpochMetric):
         if y.ndim == 1:
             y = y.unsqueeze(1)
 
-        _check_output_shapes(output)
-        _check_output_types(output)
+        _check_output_shapes((y_pred, y))
+        _check_output_types((y_pred, y))
 
-        super().update(output)
+        super().update((y_pred, y))
 
     def compute(self) -> float:
         if len(self._predictions) < 1 or len(self._targets) < 1:
