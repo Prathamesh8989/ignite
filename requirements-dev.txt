@@ -11,6 +11,7 @@ pytest-order
 pytest-timeout
 pytest-xdist
 setuptools
+fairlearn
 # Test contrib dependencies
 scipy
 pytorch_fid
@@ -35,3 +36,4 @@ pandas
 gymnasium
 # temporary fix: E   AttributeError: module 'mpmath' has no attribute 'rational'
 mpmath<1.4
+ranx
