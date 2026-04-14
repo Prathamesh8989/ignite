@@ -1,7 +1,6 @@
 # Tests
 dill
 filelock
-packaging
 pyrefly
 numpy
 pre-commit
