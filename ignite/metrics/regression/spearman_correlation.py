@@ -133,7 +133,6 @@ class SpearmanRankCorrelation(EpochMetric):
         device: str | torch.device = torch.device("cpu"),
         skip_unrolling: bool = False,
     ) -> None:
-
         super().__init__(_spearman_r, output_transform, check_compute_fn, device, skip_unrolling)
 
     def update(self, output: tuple[torch.Tensor, torch.Tensor]) -> None:
